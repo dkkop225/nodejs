@@ -1,0 +1,33 @@
+콘솔상에서 npm명령어 사용방법
+
+npm : node package management
+
+1. npm -v 
+: npm  버전 확인
+
+2. node- v
+:node 버전확인
+
+3. npm  install (혹은) npm i express(패키지명)
+ex) npm install express   : 현재 패키지에 express 모듈  설치
+
+4. npm init study
+: init을 하면 npm 패키지를 사용해서 새로운 npm 패키지를 초기화 해주는 작업 자동 수행
+study 패키지 생성 및 초기화
+
+5. npm install express
+: express 모듈 설치
+패키지 안에 package-lock.json  자동 생성
+
+6. npm install express --save-dev
+: express 설치 하고  해당패키지 안에 package-lock.json 안에 추가해서 다음에 설치할때 자동으로 설치되도록 해주는 옵션
+
+7. npm install nodemon -g
+: nodemon을 이 패키지에서만 사용하는 것이 아니라 다른 패키지에서도 global로 사용 -g
+
+8. npx create-react-app react-project
+: 해당하는패키지를 단순 설치하는 것이 아니고 실행한느 것을 목적으로 함
+
+9. npm uninstall 패키지명
+- 패키지 삭제
+- global일 경우 -g 옵션
