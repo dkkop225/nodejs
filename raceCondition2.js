@@ -1,3 +1,31 @@
+class Lock {
+    constructor(){
+        this._locked = false
+        this._waiting = []
+    }
+    lock(){
+        const unlock = () =>{
+            let nextResolve 
+            if(this_waiting.length>0) {
+                nextResolve = this._waiting.pop(0)
+                nextResolve(unlock)
+            } else {
+                this._locked = false
+            }
+        }
+        if(this._locked){
+            return new Promise(resolve => {
+                this._waiting.push(resolve)
+            })
+        } else {
+            this._locked = true
+            return new Promise(resolve => {
+                resolve(unlock)
+            })
+        }
+    }
+}
+
 let total = 0;
 
 async function getTotal(){
@@ -10,12 +38,19 @@ async function setTotal(value){
 async function increment(value,inc) {
     return value + inc
 }
+const account = new Lock()
 
 async function add() {
     let current, newValue;
+
+    unlock =  await account.lock()
+
+
     current = await getTotal()
     newValue = await increment(current,20)
     await setTotal(newValue)
+
+    await unlock()
 }
 
 async function main() {
